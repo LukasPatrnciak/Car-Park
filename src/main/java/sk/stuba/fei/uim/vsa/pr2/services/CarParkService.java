@@ -647,7 +647,7 @@ public class CarParkService extends AbstractCarParkService {
         EntityManager entityManager = emf.createEntityManager();
 
         try {
-            TypedQuery<Reservation> typedQuery = entityManager.createNamedQuery("Reservation.findById", Reservation.class);
+            TypedQuery<Reservation> typedQuery = entityManager.createNamedQuery("Reservation.findBySpotId", Reservation.class);
             typedQuery.setParameter("id", reservationId);
 
             Reservation reservation = typedQuery.getSingleResult();
@@ -676,7 +676,7 @@ public class CarParkService extends AbstractCarParkService {
         }
 
         TypedQuery<Reservation> typedQuery = entityManager.createNamedQuery("Reservation.findBySpotIdDate", Reservation.class);
-        typedQuery.setParameter("idSpot", parkingSpotId);
+        typedQuery.setParameter("id", parkingSpotId);
 
         List<Reservation> reservationList = typedQuery.getResultList();
         List<Reservation> reservationsDate = new ArrayList<>();
