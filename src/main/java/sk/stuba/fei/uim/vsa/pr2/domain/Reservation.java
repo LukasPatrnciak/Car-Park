@@ -9,8 +9,8 @@ import java.util.Date;
 @Table(name = "\"RESERVATION\"")
 @NamedQueries({
         @NamedQuery(name = "Reservation.findBySpotIdDate", query = "SELECT reserv FROM Reservation reserv WHERE reserv.id = :id"),
-        @NamedQuery(name = "Reservation.findBySpotIdDate", query = "SELECT reserv FROM Reservation reserv WHERE reserv.parkingSpotId = :idSpot"),
-        @NamedQuery(name = "Reservation.findByUserId", query = "SELECT reserv FROM Reservation reserv WHERE reserv.userId = :idUser")
+        @NamedQuery(name = "Reservation.findBySpotId", query = "SELECT reserv FROM Reservation reserv WHERE reserv.parkingSpotId = :idSpot")
+        //@NamedQuery(name = "Reservation.findByUserId", query = "SELECT reserv FROM Reservation reserv WHERE reserv.userId = :idUser")
 })
 public class Reservation {
 
