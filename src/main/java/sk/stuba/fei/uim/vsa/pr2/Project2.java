@@ -1,23 +1,26 @@
 package sk.stuba.fei.uim.vsa.pr2;
 
-
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.UriBuilder;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import sk.stuba.fei.uim.vsa.pr2.services.Authentification;
+import sk.stuba.fei.uim.vsa.pr2.services.CarParkService;
 
 import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Project2 {
+
+    private static Long id = 2121L;
+    private static String email = "admin@vsa.sk";
 
     public static final Logger LOGGER = Logger.getLogger(Project2.class.getName());
     public static final String BASE_URI = "http://localhost/";
     public static final int PORT = 8080;
-    public static final Class<? extends Application> APPLICATION_CLASS = null; // TODO sem dosaď vlastnú triedu
+    public static final Class<? extends Application> APPLICATION_CLASS = Project2Application.class;
 
     public static void main(String[] args) {
         try {
@@ -33,7 +36,7 @@ public class Project2 {
             }));
             System.out.println("Last steps of setting up the application...");
             postStart();
-            System.out.println(String.format("Application started.%nStop the application using CRL+C"));
+            System.out.println("Application started.\nStop the application using CRL+C");
             Thread.currentThread().join();
         } catch (InterruptedException e) {
             LOGGER.log(Level.SEVERE, null, e);
@@ -49,7 +52,13 @@ public class Project2 {
     }
 
     public static void postStart() {
-        // TODO sem napíš akékoľvek nastavenia, či volania, ktoré sa majú udiať ihneď po štarte
+        CarParkService carParkService = new CarParkService();
+
+        Authentification.startAuth(email, id);
+
+        if(carParkService.getUser(id) == null) {
+            carParkService.createUser(id, "Lukas", "Patrnciak", email);
+        }
     }
 
 }
