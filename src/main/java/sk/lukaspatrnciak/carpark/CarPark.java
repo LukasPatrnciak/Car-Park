@@ -1,12 +1,12 @@
-package sk.stuba.fei.uim.vsa.pr2;
+package sk.lukaspatrnciak.carpark;
 
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.UriBuilder;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
-import sk.stuba.fei.uim.vsa.pr2.services.Authentification;
-import sk.stuba.fei.uim.vsa.pr2.services.CarParkService;
+import sk.lukaspatrnciak.carpark.services.Authentification;
+import sk.lukaspatrnciak.carpark.services.CarParkService;
 
 import java.net.URI;
 import java.util.logging.Level;

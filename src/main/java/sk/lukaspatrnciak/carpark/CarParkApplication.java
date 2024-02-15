@@ -1,8 +1,8 @@
-package sk.stuba.fei.uim.vsa.pr2;
+package sk.lukaspatrnciak.carpark;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-import sk.stuba.fei.uim.vsa.pr2.web.*;
+import sk.lukaspatrnciak.carpark.web.*;
 import java.util.HashSet;
 import java.util.Set;
 

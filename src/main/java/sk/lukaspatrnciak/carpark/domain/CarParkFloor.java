@@ -10,7 +10,8 @@ import java.util.List;
         @NamedQuery(name = "CarParkFloor.findAll", query = "SELECT cParkFloor FROM CarParkFloor cParkFloor WHERE cParkFloor.carParkId = :id"),
         @NamedQuery(name = "CarParkFloor.findById", query = "SELECT cParkFloor FROM CarParkFloor cParkFloor WHERE cParkFloor.id = :id"),
         @NamedQuery(name = "CarParkFloor.findByIdAndFloor", query = "SELECT cParkFloor FROM CarParkFloor cParkFloor WHERE cParkFloor.id = :id AND cParkFloor.floorIdentifier = :floor"),
-        @NamedQuery(name = "CarParkFloor.findByFloor", query = "SELECT cParkFloor FROM CarParkFloor cParkFloor WHERE cParkFloor.floorIdentifier = :floor")
+        @NamedQuery(name = "CarParkFloor.findByFloor", query = "SELECT cParkFloor FROM CarParkFloor cParkFloor WHERE cParkFloor.floorIdentifier = :floor"),
+        @NamedQuery(name = "CarParkFloor.findByIdentification", query = "SELECT CarParkFloor FROM CarParkFloor carParkFloor WHERE carParkFloor.floorIdentifier = :idf")
 })
 public class CarParkFloor {
 

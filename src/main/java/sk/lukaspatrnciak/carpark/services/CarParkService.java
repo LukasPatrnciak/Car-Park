@@ -159,11 +159,14 @@ public class CarParkService extends AbstractCarParkService {
         return carParkFloor;
     }
 
-    public CarParkFloor getCarParkFloor(String identificator) {
+    @Override
+    public CarParkFloor getCarParkFloor(String identification) {
         EntityManager entityManager = emf.createEntityManager();
 
         try {
-            CarParkFloor carParkFloor = entityManager.createQuery("SELECT CarParkFloor FROM CarParkFloor carParkFloor WHERE carParkFloor.floorIdentifier = :idf", CarParkFloor.class).setParameter("idf", identificator).getSingleResult();
+            TypedQuery<CarParkFloor> typedQuery = entityManager.createNamedQuery("CarPark.findByIdentification", CarParkFloor.class);
+            typedQuery.setParameter("idf", identification);
+            CarParkFloor carParkFloor = typedQuery.getSingleResult();
 
             return carParkFloor;
 

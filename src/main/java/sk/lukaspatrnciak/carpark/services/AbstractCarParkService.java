@@ -85,6 +85,15 @@ public abstract class AbstractCarParkService {
     public abstract CarParkFloor createCarParkFloor(Long carParkId, String floorIdentifier);
 
     /**
+     * Získanie entity poschodia parkovacieho domu
+     *
+     * @param identification     id parkovacieho domu
+     *
+     * @return objekt entity poschodia
+     */
+    public abstract CarParkFloor getCarParkFloor(String identification);
+
+    /**
      * Získanie entity poschodia parkovacieho domu. Táto metóda počíta s tím, že carParkFloor má kompozitný primárny kľúč.
      * Implementovanie entity CarParkFloor pomocou kompozitného kľúča bude ohodnotené bonusovými bodmi.
      * Implementujte iba v prípade, že nebude implementovať metódu {@link #getCarParkFloor(Long) getCarParkFloor(Long carParkFloorId)}
